@@ -2,22 +2,27 @@
 
 const nums = [2, 3, 1, 2, 4, 3]
 const target = 7
-function minimumSubArray(nums, target) {
+const minimumSubArray = (nums, target) => {
   let left = 0;
   let currentSum = 0;
-  let minLength = Infinity;
+  let minWindowLength = Infinity;
 
 
   for (let right = 0; right < nums.length; right++) {
     currentSum += nums[right]
     while (currentSum >= target) {
-      minLength = Math.min(minLength, right - left + 1)
+      let windowLength = right - left + 1;
+      minWindowLength = Math.min(minWindowLength, windowLength)
       currentSum -= nums[left];
-      left++
+      left++;
     }
 
   }
-  return minLength === Infinity ? 0 : minLength;
+  // if (minWindowLength === Infinity) {
+  //   return 0;
+  // }
+  // else return minWindowLength;
+  return minWindowLength === Infinity ? 0 : minWindowLength;
 
 }
 
