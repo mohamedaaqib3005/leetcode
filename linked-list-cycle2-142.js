@@ -1,36 +1,97 @@
-const returnStartCycleNode = (head) => {
-  // start both the pointers at the head
-  let slow = head;
-  let fast = head;
-  // let found = false;
-  // run a loop as long as fast pointer can traverse
+// const returnStartCycleNode = (head) => {
+//   // start both the pointers at the head
+//   let slow = head;
+//   let fast = head;
+//   // let found = false;
+//   // run a loop as long as fast pointer can traverse
 
 
-  while (fast && fast.next) {
-    // move slow pointer one step at a time
-    slow = slow.next;
-    // move fast pointer two steps at a time
-    fast = fast.next.next;
-    // let the distance from head to the point be x ,so s is equal to the no of nodes traversed by slow pointer
-    if (slow === fast) {
-      // found = true;
-      slow = head;
-      break;
-    }
+//   while (fast && fast.next) {  // change the condition as long as slow and fast meet
+//     // move slow pointer one step at a time
+//     slow = slow.next;
+//     // move fast pointer two steps at a time
+//     fast = fast.next.next;
+//     // let the distance from head to the point be x ,so s is equal to the no of nodes traversed by slow pointer
+//     if (slow === fast) {
+//       // found = true;
+//       slow = head;
+//       break;
+//     }
 
-  }
-  // check if there is a cycle or not if there is no cycle it should proceed to the loop
-  if (!fast || !fast.next) return null;
+//   }
+//   // check if there is a cycle or not if there is no cycle it should proceed to the loop
+//   if (!fast || !fast.next) return null;
+//   while (slow !== fast) {
+//     slow = slow.next;
+//     // move fast pointer one step at a tine
+//     fast = fast.next
+
+//     if (slow === fast) return slow;
+//   }
+// }
+
+const returnStartCycleNode = () => {
+  // Edgecases
+  // check if head and head.next pointer exist
+  if (!head || !head.next) return null;//if there is no head and no head.next exit
+
+  let slow = head.next;
+  let fast = slow.next;
+
+  // run a loop as long as the slow and fast pointers meet
   while (slow !== fast) {
-    slow = slow.next;
-    // move fast pointer one step at a tine
-    fast = fast.next
-
-    if (slow === fast) return slow;
+    // if the fast cannot traverse there is no cycle
+    if (!fast || !fast.next) {
+      return null;
+    }
+    slow = slow.next;// move slow pointers one step
+    fast = fast.next.next;// move fast pointer two steps
   }
-  return false;
-};
 
+  while (head !== slow) {
+    head = head.next;//move head one step at a time
+    slow = slow.next;// move slow from meeting point
+  }
+  return head;
+
+}
+
+
+const linkedListCycle = () => {
+  // edgecases
+  //  1.if there is only one node
+
+  let slow = head.next;
+  let fast = slow.next.next;
+
+  while (slow !== fast) {
+    if (!fast || !fast.next) return null;
+
+    slow = slow.next;
+    fast = slow.next.next;
+  }
+
+  while (head !== slow) {
+    head = head.next;
+    slow = slow.next;
+  }
+  return null;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  ;
+// Hint :
+// index of x = x + x + y
 
 
 
