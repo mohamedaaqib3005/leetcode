@@ -43,6 +43,7 @@ const duplicateArray = (nums) => {
 console.log(duplicateArray())
 
 
+for (let [i, num] of nums.entries())
 //Learnings:
 // for (let num of nums){
 // hashmap[num] = true

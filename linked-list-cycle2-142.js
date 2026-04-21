@@ -78,6 +78,13 @@ const linkedListCycle = () => {
   return null;
 }
 
+const time = 1;
+
+if (!time) { // if the time is falsy enter the condition block
+  console.log(!time);//true
+  console.log("invalid");
+}
+console.log("false");
 
 
 
@@ -87,9 +94,7 @@ const linkedListCycle = () => {
 
 
 
-
-
-  ;
+;
 // Hint :
 // index of x = x + x + y
 
