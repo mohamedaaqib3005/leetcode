@@ -29,6 +29,7 @@ const rightSideView = (root) => {
     // push the children of the node
     if (node.left) stack.push(node.left)
     if (node.right) stack.push(node.right)
+
   }
   // if the stack is empty stop this process
 }
