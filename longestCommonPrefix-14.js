@@ -15,17 +15,17 @@ const strs = ["bat", "bag", "bank", "band"]
 
 const longestCommonPrefix = () => {
   // Sort the array based on alphabatical order
-  const sortedString = strs.sort() // dont use sort(a,b)
+  const sortedStrings = strs.sort() // dont use sort(a,b)
 
   // create a variable for prefix where u ll be adding char
   let prefix = "";
   //!important  compare only first and last element of the array containing string because once it is sorted the common prefix is what that is similar to first and last element
-  const first = sortedString[0];
+  const first = sortedStrings[0];
   // split the char of first element into an array
   const firstArray = first.split("")
-  const lastIndex = sortedString.length - 1;
+  const lastIndex = sortedStrings.length - 1;
 
-  const last = sortedString[lastIndex]
+  const last = sortedStrings[lastIndex]
   // split the char of last element into an array
   const lastArray = last.split("")
   // loop through the minlength of first and last element
