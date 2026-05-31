@@ -38,8 +38,7 @@
 
 const nums = [7, 7, 2, 2, 10, 10, 10]
 const secondLargestNumber = (nums) => {
-  if (nums.length == 0) return null;
-  if (nums.length == 1) return nums[0];
+  if (nums.length < 2) return -1;
   // Sort the input array
   const sortedArray = nums.sort((a, b) => a - b);
   // Find the last index of the array
@@ -57,4 +56,46 @@ const secondLargestNumber = (nums) => {
   }
 }
 
-console.log(secondLargestNumber(nums))
+console.log(secondLargestNumber(nums));
+
+
+// Learnings:
+// sort() mutates the input array
+
+
+//can we do better
+
+const numbers = [7, 7, 2, 2, 3, 10, 10, 10];
+
+const secondLargestNumberInArray = (numbers) => {
+  // validation
+  if (nums.length < 2) return -1;
+
+  // Initialise the largest and secondlargest variable to -Infinity
+  let largestNumber = -Infinity;
+  let secondLargestNumber = - Infinity;
+  // Iterate through the array
+  for (let num of numbers) {
+    // If u find any num greater than largest then change the value of the largest to the value of num ;
+    if (num > largestNumber) {
+      secondLargestNumber = largestNumber;
+      largestNumber = num;
+    }
+    //  If u find any value lesser than largest and greater than secondlargest  then change the value of secondlargest to that num value
+    else if (num < largestNumber && num > secondLargestNumber) {
+      secondLargestNumber = num;
+    }
+  }
+  // if (secondLargestNumber === - Infinity) {
+  //   return -1
+  // }
+  // return the second largest number
+  console.log("secondLargestNumber", secondLargestNumber)
+  return secondLargestNumber === -Infinity
+    ? -1
+    : secondLargestNumber;
+}
+
+console.log(secondLargestNumberInArray(numbers))
+
+
