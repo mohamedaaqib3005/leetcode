@@ -83,14 +83,46 @@ const checkIfArrayIsSorted = () => {
     if (nums[i] > nums[i + 1]) {
       return false
     }
-
   }
   //  if no elements have no violations
-  return true
+  return true;
 }
 
 
-Complexity: O(n)
+// Complexity: O(n)
 
 // One failure is enough to prove False.
 // But success requires checking everything.
+
+// Other approach checking if all the pairs are valid;
+
+const num = [1, 2, 1, 4, 5];
+
+const checkArrSorted = (num) => {
+  // Take care of edgecases
+  if (num.length < 2) return true;
+
+  let validElements = 0;
+
+  // Iterate through the input array
+  for (let i = 0; i < num.length - 1; i++) {
+    // Check if all pairs are valid i.e next element is greater or equal to previous element not lesser which violates it from being sorted in  non descending order.
+    if (num[i] <= num[i + 1]) {
+      validElements++;
+    }
+
+  }
+  // check if all pairs are valid then it is true
+  if (validElements === num.length - 1) {
+    console.log("validelements", validElements);
+    return true;
+  }
+  else {
+    //if even one pair violates return false
+    return false;
+  }
+
+}
+
+
+console.log(checkArrSorted(num))
