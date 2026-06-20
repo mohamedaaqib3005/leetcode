@@ -51,7 +51,7 @@
 // return the new array
 
 
-const nums = [-1, 0, 3, 6]
+const nums = [1, 2, 3, 4, 5]
 const leftRotateArraybyOne = (nums) => {
   //Create a new array
   const leftRotatedArray = [];
