@@ -41,3 +41,16 @@ const rotateArray = (nums, k) => {
 
 console.log(rotateArray(nums, k))
 //[ 7, 6, 5 ]
+
+
+
+// Cleaner Brute Force solution
+var rotate = function (nums, k) {
+  // if k is greater than nums.length it doest make sense to rotate k it is inefficient
+  k = k % nums.length;
+  // Iterate through the array for k times
+  for (let i = 0; i < k; i++) {
+    // remove the last element and add to the start of the array
+    nums.unshift(nums.pop())
+  }
+};
