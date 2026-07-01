@@ -35,36 +35,36 @@
 // // [3, 4, 6, 8] target: 7 ✅ //valid
 
 
-// //Brute Force
-// const nums = [3, 4, 5, 6];
+//Brute Force
+const nums = [3, 4, 5, 6];
 
-// const twoSum = (nums, target) => {
-//   // let result = [];
-//   // validation
-//   if (nums.length <= 1) return null;
+const twoSum = (nums, target) => {
+  // let result = [];
+  // validation
+  if (nums.length <= 1) return null;
 
-//   // iterate through the array
-//   for (let i = 0; i < nums.length; i++) {
-//     // for each element run a loop within the array
-//     for (let j = i + 1; j < nums.length; j++) {
+  // iterate through the array
+  for (let i = 0; i < nums.length; i++) {
+    // for each element run a loop within the array
+    for (let j = i + 1; j < nums.length; j++) {
 
-//       // check if the outer loop element and inner loop element sum up to target provided
-//       if (nums[i] + nums[j] === target) {
-//         // return result.push(i, j) // arr.push --> return the size of the array
+      // check if the outer loop element and inner loop element sum up to target provided
+      if (nums[i] + nums[j] === target) {
+        // return result.push(i, j) // arr.push --> return the size of the array
 
-//         // add the indices to an array and return the array
-//         return [i, j];
-//       }
-//     }
-//   }
-//   // fallback case
-//   return [];
-// }
+        // add the indices to an array and return the array
+        return [i, j];
+      }
+    }
+  }
+  // fallback case
+  return [];
+}
 
-// console.log(twoSum(nums, 7))
+console.log(twoSum(nums, 7))
 
-// //Time Complexity : n^2;
-// //Space Complexity : i and j so O(1)
+//Time Complexity : n^2;
+//Space Complexity : i and j so O(1)
 
 
 // // we can do better

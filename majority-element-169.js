@@ -50,4 +50,6 @@ const majorityElement = () => {
 
 }
 
-console.log(majorityElement())
+console.log(majorityElement());
+
+
