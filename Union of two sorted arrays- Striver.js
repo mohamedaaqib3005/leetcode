@@ -81,9 +81,52 @@ const unionArray = () => {
 
 // Time complexity - hashmap approach: nlog(k)
 
+can we do better
+// Two Pointer Approach
+const unionSortedArray = () => {
+  create a new array
+  create two pointers left and right
+  compare both pointers value
+  if left is lesser than right move left forward
+  else move right
+if the left or right is smaller then push in array
+if right and left are equal then push but if there are duplicates dont again push
+return the new array
+}
+
+// Two Pointer Approach
+
+Create an empty result array.
+merge both input arrays nums1 and nums2
+Create two pointers:
+left = 0
+right = nums1.length - 1
 
 
+    Compare left and right
 
+    If left < right
+        Add left to the result(only if it isn't already the last element)
+        Move left pointer forward
+
+    Else if right < left:
+        Add right to the result(only if it isn't already the last element)
+        Move right pointer forward
+
+Else:
+        // Both values are equal
+        Add the value once(only if it isn't already the last element)
+        Move both pointers forward
+
+After one array finishes:
+
+    Add all remaining elements from nums1
+  (again, avoid duplicates)
+
+    Add all remaining elements from nums2
+  (again, avoid duplicates)
+
+Return the result.
 
 
 // Learnings
