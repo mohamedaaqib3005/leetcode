@@ -64,6 +64,21 @@ console.log(findMissingNumber(nums))
 
 // Learnings
 // Object.fromEntries() expects array of array not just array
+// ✔ Object.fromEntries() expects an array of [key, value] pairs.
+
+// ✔ map() can transform every element into a [key, value] pair.
+
+// ✔ Object.fromEntries() converts those pairs into an object.
+
+// ✔ "key in object" checks whether a key exists.
+
+// ✔ Object.fromEntries() runs in O(n).
+
+// ✔ map() runs in O(n).
+
+// ✔ Consecutive linear operations remain O(n).
+
+// ✔ A lookup object can replace repeated linear searches.
 
 Complexity:
 O(n)
