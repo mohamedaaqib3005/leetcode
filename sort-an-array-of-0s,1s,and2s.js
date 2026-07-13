@@ -41,89 +41,122 @@
 //
 
 const nums = [1, 0, 2, 1, 0];
-const sortAnArray = (nums) => {
-  const lastIndex = nums.length - 1;
-  // Iterate through array
-  for (let i = 0; i < nums.length; i++) {
-    // Check if number is 2
-    if (nums[i] === 2) {
-      if (i !== lastIndex) {
-        //Remove the element
-        nums.splice(i, 1);
-        // Push the element at the end
-        nums.push(2);
-        // Move the iterator one index behind
-        console.log("nums", nums)
-        console.log("test")
-        i--;
-      }
-      else {
-        //Remove the element
-        nums.splice(i, 1);
-        // Push the element at the end
-        nums.push(2);
-        // Move the iterator one index behind
-        console.log("nums", nums)
-        console.log("test")
-      }
-    }
-    // check if number is 0
-    if (nums[i] === 0) {
-      console.log("found 0")
-      // Remove the element
-      nums.splice(i, 1);
-      //Add the element at the start
-      console.log("num before adding at start", nums[i])
-      nums.unshift(0);
-      // Move the iterator one index behind
-      i--;
-      console.log("num after shifting", nums[i])
-      console.log("i", i)
-      console.log(nums, "foundzeromodifiedarray")
-    }
-  }
-  // Return the mutated input  array
-  return nums
-}
+// const sortAnArray = (nums) => {
+//   const lastIndex = nums.length - 1;
+//   // Iterate through array
+//   for (let i = 0; i < nums.length; i++) {
+//     // Check if number is 2
+//     if (nums[i] === 2) {
+//       if (i !== lastIndex) {
+//         //Remove the element
+//         nums.splice(i, 1);
+//         // Push the element at the end
+//         nums.push(2);
+//         // Move the iterator one index behind
+//         console.log("nums", nums)
+//         console.log("test")
+//         i--;
+//       }
+//       else {
+//         //Remove the element
+//         nums.splice(i, 1);
+//         // Push the element at the end
+//         nums.push(2);
+//         // Move the iterator one index behind
+//         console.log("nums", nums)
+//         console.log("test")
+//       }
+//     }
+//     // check if number is 0
+//     if (nums[i] === 0) {
+//       console.log("found 0")
+//       // Remove the element
+//       nums.splice(i, 1);
+//       //Add the element at the start
+//       console.log("num before adding at start", nums[i])
+//       nums.unshift(0);
+//       // Move the iterator one index behind
+//       i--;
+//       console.log("num after shifting", nums[i])
+//       console.log("i", i)
+//       console.log(nums, "foundzeromodifiedarray")
+//     }
+//   }
+//   // Return the mutated input  array
+//   return nums
+// }
 
 
-console.log(sortAnArray(nums))
+// console.log(sortAnArray(nums))
 // This is not a good approach
 
 
 // Better approach(correct Brute Force)
-const sortAnArraywith3numbers = (nums) => {
-  let count0 = 0; count1 = 0; count2 = 0;
+// const sortAnArraywith3numbers = (nums) => {
+//   let count0 = 0; count1 = 0; count2 = 0;
 
-  // Count all no of 0s ,1s,2s
-  for (let num of nums) {
-    if (num === 0) count0++;
-    else if (num === 1) count1++;
-    else count2++;
-  }
-  //  Add zeros for the numbers times zeros exist in the array at index 0
-  for (let i = 0; i < count0; i++) {
-    nums[i] = 0;
-  }
-  //  Add ones for the numbers times ones exist in the array at index after zeroes end
+//   // Count all no of 0s ,1s,2s
+//   for (let num of nums) {
+//     if (num === 0) count0++;
+//     else if (num === 1) count1++;
+//     else count2++;
+//   }
+//   //  Add zeros for the numbers times zeros exist in the array at index 0
+//   for (let i = 0; i < count0; i++) {
+//     nums[i] = 0;
+//   }
+//   //  Add ones for the numbers times ones exist in the array at index after zeroes end
 
-  for (let i = count0; i < count1; i++) {
-    nums[i] = 1;
-  }
-  //  Add twos for the numbers times two exist in the array at index after ones end
+//   for (let i = count0; i < count1; i++) {
+//     nums[i] = 1;
+//   }
+//   //  Add twos for the numbers times two exist in the array at index after ones end
 
-  for (let i = count1; i < count2; i++) {
-    nums[i] = 2;
+//   for (let i = count1; i < count2; i++) {
+//     nums[i] = 2;
+//   }
+//   // Return modified input array
+//   return nums
+// }
+
+// console.log(sortAnArraywith3numbers(nums))
+
+
+// Optimal solution - Dutch National Flag
+const sortAnArraywithThreeNumbers = (nums) => {
+  // Create Three pointers
+  let lastIndex = nums.length - 1;
+  let low = 0; let mid = 0; let high = lastIndex;
+  // Iterate through the input array until mid is greater than or equal to high
+  while (mid <= high) {
+    // Check if mid value is equal to 0
+    if (nums[mid] === 0) {
+      //  Swap low and mid pointer values
+      [nums[mid], nums[low]] = [nums[low], nums[mid]];
+      // Move the mid pointer forward
+      mid++;
+      // Move the low pointer forward
+      low++;
+    }
+
+    // Check if mid value is equal to 2
+    else if (nums[mid] === 2) {
+      // Swap mid and high values
+      [nums[mid], nums[high]] = [nums[high], nums[mid]];
+      // Move high pointers backwards
+      high--
+    }
+    // Check if mid value is equal to 1
+    else {
+      // Just move mid forward no swap needed
+      mid++;
+    }
   }
-  // Return modified input array
+  // Return the sorted array
   return nums
 }
 
-console.log(sortAnArraywith3numbers(nums))
-
-
-
-
+console.log(sortAnArraywithThreeNumbers(nums));
 // Learnings:
 // cannot do i++ or i-- in nums.entries()
 // Avoid changing its size while you are iterating over it
