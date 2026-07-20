@@ -41,16 +41,16 @@
 const nums = [3, 8, 1, 4, 6, 2];
 const buyAndSellStock = (nums) => {
   // Create two variables maxProfit and currentBuyPrice
-  let currentBuyPrice = input[0]; let maxProfit = 0;
+  let currentBuyPrice = prices[0]; let maxProfit = 0;
   // Iterate through the array
-  for (i = 1; i < nums.length; i++) {
+  for (i = 1; i < prices.length; i++) {
     // Check if the different between current price and currentBuyPrice is greater than the current maxProfit
-    if (input[i] - currentBuyPrice > maxProfit) {
+    if (prices[i] - currentBuyPrice > maxProfit) {
       maxProfit = input[i] - currentBuyPrice;//Reassign maxProfit with new difference
     }
-    if (input[i] < currentBuyPrice) {
+    if (prices[i] < currentBuyPrice) {
       // if the current price is lesser than current Buy price change the current buy price to current price
-      currentBuyPrice = input[i];
+      currentBuyPrice = prices[i];
     }
   }
   // Return maxProfit
