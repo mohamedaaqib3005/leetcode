@@ -155,6 +155,7 @@ const boyerMoyer = (nums) => {
     return element
   } else {
     return -1;
+
   }
 }
 
