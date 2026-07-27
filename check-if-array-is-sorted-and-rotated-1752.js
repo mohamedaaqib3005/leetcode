@@ -74,7 +74,6 @@ const checkIfArrayIsSorted = (nums) => {
       }
       return true;
     }
-
   }
   // if it doesnt violate then return true
   return true;
