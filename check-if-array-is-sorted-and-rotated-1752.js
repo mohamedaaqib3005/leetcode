@@ -65,7 +65,7 @@ const checkIfArrayIsSorted = (nums) => {
       console.log("leftPart", leftPart);
       // slice the subarray till the current element  and push it at the end of the array
       const rebuiltArray = [...rightPart, ...leftPart];
-      console.log("rebuiltArray", rebuiltArray)
+      console.log("rebuiltArray", rebuiltArray);
       // again iterate and check if the array now has any element that violates the sorting pattern
       for (let j = 0; j < rebuiltArray.length - 1; j++) {
         if (rebuiltArray[j] > rebuiltArray[j + 1]) {
@@ -80,3 +80,8 @@ const checkIfArrayIsSorted = (nums) => {
 
 }
 console.log(checkIfArrayIsSorted(nums));
+
+// Time Complexity: O(n2)
+// Space Complexity: O(1)
+
+can we do better  than O(n2)
